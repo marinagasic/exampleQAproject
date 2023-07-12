@@ -26,59 +26,38 @@
         this.driver=driver;
     }
 
-
     public void loginAccess(String entryUserName, String entryPassword){
         driver.findElement(user).sendKeys(entryUserName);
         driver.findElement(password).sendKeys(entryPassword);
         driver.findElement(loginButton).click();
     }
+
     public void validatePage(){
         testLoginPageUrl();
         testLogoExistence();
     }
+
     public boolean testLoginPageUrl(){
         return driver.getCurrentUrl().equals(expectedUrl);
-
     }
+
     public boolean testLogoExistence(){
         return driver.findElement(logo).isDisplayed();
     }
+
     public String findBottomText(){
         return driver.findElement(bottomElement).getText();
     }
+
     public String fakePassword(){
         return faker.toString();
     }
+
     public String badLogin(){
         return driver.findElement(badLoginText).getText();
-
     }
+
     public String fakeUser(){
         return faker.name().username();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

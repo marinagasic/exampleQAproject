@@ -33,16 +33,19 @@ public class TestLoginPage extends BaseStuff {
         login.loginAccess(login.validUserName, login.fakePassword());
         Assert.assertTrue("Test did not pass",login.badLogin().contains("do not match"));
     }
+
     @Test
     public void test3ValidPasswordWrongUser(){
         login.loginAccess(login.fakeUser(), login.validPassword);
         Assert.assertTrue("Test did not pass",login.badLogin().contains("do not match"));
     }
+
     @Test
     public void test4WrongUserWrongPassword(){
         login.loginAccess(login.fakeUser(), login.fakePassword());
         Assert.assertTrue("Test did not pass",login.badLogin().contains("do not match"));
     }
+
     @Test
     public void test5ValidUserNoPassword(){
         login.loginAccess(login.validUserName, "");

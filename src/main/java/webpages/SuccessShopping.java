@@ -30,7 +30,6 @@ public class SuccessShopping {
 
     public SuccessShopping(WebDriver driver){
         this.driver=driver;
-
     }
     public void buyingOneItem(){
         driver.findElement(firstShoppingItem).click();
@@ -43,6 +42,7 @@ public class SuccessShopping {
         driver.findElement(proceedContinue).click();
         driver.findElement(proceedFinish).click();
     }
+
     public String confirmationStatus(){
         return driver.findElement(shoppingResult).getText();
     }
@@ -64,5 +64,4 @@ public class SuccessShopping {
     public boolean comparePrices(){
         return driver.findElement(overviewCalculatedPrice).getText().equals(expectedPrice);
     }
-
 }

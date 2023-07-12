@@ -7,12 +7,9 @@ import webpages.SocialLinks;
 
 public class TestSocialLinks extends BaseStuff{
 
-
-
     LoginPage login = new LoginPage(driver);
     SocialLinks social = new SocialLinks(driver);
     public String urlHomePage ="https://www.saucedemo.com/";
-
 
     @Before
     public void openHomePage(){
@@ -31,7 +28,6 @@ public class TestSocialLinks extends BaseStuff{
         scroll.executeScript("window.scrollBy(0,2000)","");
         String previousTab = social.openTwitterLink();
         Assert.assertTrue("Test did not past", social.validateTwitter(previousTab));
-
     }
 
     @Test

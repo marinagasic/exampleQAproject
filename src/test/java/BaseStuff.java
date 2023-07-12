@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseStuff {
+
    public static WebDriver driver;
    JavascriptExecutor scroll=(JavascriptExecutor) driver;
 
@@ -15,17 +16,9 @@ public class BaseStuff {
       driver=new FirefoxDriver();
       driver.manage().window().maximize();
    }
+
    @AfterClass
    public static void afterClas() throws Exception{
       driver.quit();
    }
-
-
-
-
-
-
-
-
-
 }

@@ -2,14 +2,12 @@ package webpages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.Iterator;
 import java.util.Set;
 
 public class SocialLinks {
 
     public WebDriver driver;
-
 
     public By twitter = By.xpath("//*[text()=\"Twitter\"]");
     public By facebook= By.xpath("//*[text()=\"Facebook\"]");
@@ -60,7 +58,6 @@ public class SocialLinks {
         return mainTab;
 
     }
-
 
     public boolean validateTwitter(String mainTab) throws InterruptedException {
         Thread.sleep(2000);
