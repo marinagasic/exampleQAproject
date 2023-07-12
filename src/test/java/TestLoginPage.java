@@ -22,7 +22,7 @@ public class TestLoginPage extends BaseStuff {
 
     @Test
     public void test1ValidUserAndPassword(){
-        login.loginAccess(login.validUserName, login.validPassvord);
+        login.loginAccess(login.validUserName, login.validPassword);
         login.validatePage();
         scroll.executeScript("window.scrollBy(0,2000)","");
         Assert.assertEquals("Test did not pass", login.findBottomText(), login.bottomTextToFind);
@@ -35,7 +35,7 @@ public class TestLoginPage extends BaseStuff {
     }
     @Test
     public void test3ValidPasswordWrongUser(){
-        login.loginAccess(login.fakeUser(), login.validPassvord);
+        login.loginAccess(login.fakeUser(), login.validPassword);
         Assert.assertTrue("Test did not pass",login.badLogin().contains("do not match"));
     }
     @Test

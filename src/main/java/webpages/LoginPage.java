@@ -7,10 +7,10 @@
  public class LoginPage {
     public WebDriver driver;
     public By user = By.xpath("//input[@placeholder=\"Username\"]");
-    public By passwod = By.name("password");
+    public By password = By.name("password");
     public By loginButton = By.xpath("//*[@data-test=\"login-button\"]");
     public String validUserName="standard_user";
-    public String validPassvord="secret_sauce";
+    public String validPassword ="secret_sauce";
 
     public String expectedUrl = "https://www.saucedemo.com/inventory.html";
     public By logo= By.xpath("//*[@class=\"app_logo\"][text()=\"Swag Labs\"]");
@@ -29,7 +29,7 @@
 
     public void loginAccess(String entryUserName, String entryPassword){
         driver.findElement(user).sendKeys(entryUserName);
-        driver.findElement(passwod).sendKeys(entryPassword);
+        driver.findElement(password).sendKeys(entryPassword);
         driver.findElement(loginButton).click();
     }
     public void validatePage(){

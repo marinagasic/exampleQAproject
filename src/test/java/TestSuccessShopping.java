@@ -23,13 +23,13 @@ public class TestSuccessShopping extends BaseStuff{
     }
     @Test
     public void test1SuccessfulShopping(){
-        login.loginAccess(login.validUserName, login.validPassvord);
+        login.loginAccess(login.validUserName, login.validPassword);
         purchasing.buyingOneItem();
         Assert.assertTrue("Test did not pass",purchasing.confirmationStatus().contains("Thank you"));
     }
     @Test
     public void test2Bonus(){
-        login.loginAccess(login.validUserName, login.validPassvord);
+        login.loginAccess(login.validUserName, login.validPassword);
         purchasing.bonusBuyingItems();
         Assert.assertTrue("Test did not pass",purchasing.comparePrices());
     }

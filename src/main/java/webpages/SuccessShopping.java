@@ -25,7 +25,6 @@ public class SuccessShopping {
     public By secondShoppingItem = By.xpath("//*[text()=\"Sauce Labs Onesie\"]");
     public By returnToProductsPage = By.xpath( "//*[@name=\"back-to-products\"]");
 
-//    public By overviewCalculatedPrice = By.xpath("//*[@class=\"summary_info_label summary_total_label\"]");
     public By overviewCalculatedPrice = By.xpath("//*[@class=\"summary_subtotal_label\"]");
     public String expectedPrice = "Item total: $37.98";
 

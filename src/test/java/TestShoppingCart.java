@@ -24,14 +24,14 @@ public class TestShoppingCart extends BaseStuff {
 
     @Test
     public void test1AddTwoProductsToShoppingCart(){
-        login.loginAccess(login.validUserName,login.validPassvord);
+        login.loginAccess(login.validUserName,login.validPassword);
         cart.addItemsToCart();
         cart.validateShoppingCart();
     }
 
     @Test
     public void test2AddTwoRemoveOneProductsToShoppingCart(){
-        login.loginAccess(login.validUserName,login.validPassvord);
+        login.loginAccess(login.validUserName,login.validPassword);
         cart.addItemsToCart();
         cart.removeFrstItem();
         cart.validateCartWithOneItem();
