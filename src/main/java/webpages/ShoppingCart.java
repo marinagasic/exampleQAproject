@@ -34,7 +34,7 @@ public class ShoppingCart {
         return driver.findElement(cartItemsList).isDisplayed();
     }
 
-    public void removeFrstItem(){
+    public void removeFirstItem(){
         driver.findElement(proceedToCheckout).click();
 //        driver.findElement(firstItemRemoveButton).click();
         driver.findElements(firstItemRemoveButton).get(0).click();

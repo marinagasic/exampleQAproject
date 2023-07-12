@@ -33,7 +33,7 @@ public class TestShoppingCart extends BaseStuff {
     public void test2AddTwoRemoveOneProductsToShoppingCart(){
         login.loginAccess(login.validUserName,login.validPassword);
         cart.addItemsToCart();
-        cart.removeFrstItem();
+        cart.removeFirstItem();
         cart.validateCartWithOneItem();
     }
 }
