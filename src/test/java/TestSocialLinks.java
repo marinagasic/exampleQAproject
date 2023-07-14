@@ -26,7 +26,9 @@ public class TestSocialLinks extends BaseStuff{
     public void test1Twitter() throws InterruptedException {
         login.loginAccess(login.validUserName,login.validPassword);
         scroll.executeScript("window.scrollBy(0,2000)","");
+        // open_Link() mark current/startTab
         String previousTab = social.openTwitterLink();
+        // validate_() closes _social_ tab and returns to startTab
         Assert.assertTrue("Test did not past", social.validateTwitter(previousTab));
     }
 
