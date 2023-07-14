@@ -5,11 +5,32 @@ import org.junit.Test;
 import webpages.LoginPage;
 import webpages.SocialLinks;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class TestSocialLinks extends BaseStuff{
 
     LoginPage login = new LoginPage(driver);
     SocialLinks social = new SocialLinks(driver);
     public String urlHomePage ="https://www.saucedemo.com/";
+
+
+    public void testStepsForSocialNetworkLink(String socialNetworkName) throws InterruptedException{
+        login.loginAccess(login.validUserName, login.validPassword);
+        scroll.executeScript("window.scrollBy(0,2000)", "");
+        social.selectSocialNetwork(socialNetworkName);
+
+        Set<String> openTabs = social.listOfTabs();
+
+        Iterator<String> tabs = openTabs.iterator();
+        String mainTab = tabs.next();
+        String socialNetworkTab = tabs.next();
+
+        social.switchToTab(socialNetworkTab);
+        Assert.assertTrue("Test did not pass", social.validateByUrlContains(socialNetworkName));
+        social.closeCurrentTab();
+        social.switchToTab(mainTab);
+    }
 
     @Before
     public void openHomePage(){
@@ -23,28 +44,17 @@ public class TestSocialLinks extends BaseStuff{
     }
 
     @Test
-    public void test1Twitter() throws InterruptedException {
-        login.loginAccess(login.validUserName,login.validPassword);
-        scroll.executeScript("window.scrollBy(0,2000)","");
-        // open_Link() mark current/startTab
-        String previousTab = social.openTwitterLink();
-        // validate_() closes _social_ tab and returns to startTab
-        Assert.assertTrue("Test did not past", social.validateTwitter(previousTab));
+    public void test1Twitter() throws InterruptedException{
+        testStepsForSocialNetworkLink("twitter");
     }
 
     @Test
-    public void test2Facebook() throws InterruptedException {
-        login.loginAccess(login.validUserName,login.validPassword);
-        scroll.executeScript("window.scrollBy(0,2000)","");
-        String previousTab = social.openFacebookLink();
-        Assert.assertTrue("Test did not past", social.validateFacebook(previousTab));
+    public void test2Facebook() throws InterruptedException{
+        testStepsForSocialNetworkLink("facebook");
     }
 
     @Test
-    public void test3LinkedIn() throws InterruptedException {
-        login.loginAccess(login.validUserName,login.validPassword);
-        scroll.executeScript("window.scrollBy(0,2000)","");
-        String previousTab = social.openLinkedInLink();
-        Assert.assertTrue("Test did not past", social.validateLinkedIn(previousTab));
+    public void test3LinkedIn() throws InterruptedException{
+        testStepsForSocialNetworkLink("linkedin");
     }
 }
